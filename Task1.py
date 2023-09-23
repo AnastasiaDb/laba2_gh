@@ -7,6 +7,8 @@ from matplotlib import pyplot as plt
 
 
 def task1():
+    arr_im1 = [0] * 256
+    arr_im2 = [0] * 256
     max_diff = -1
     min_diff = 256
     image = Image.open("color.jpg")
@@ -24,6 +26,8 @@ def task1():
             val2 = int(0.2126 * r + 0.7152 * g + 0.0722 * b)
             myImage1.putpixel((x, y), (val1,val1,val1))
             myImage2.putpixel((x, y), (val2,val2,val2))
+            arr_im1[val1] += 1
+            arr_im2[val2] += 1
             # diffImage.putpixel((x, y), abs(val1-val2))
             diff = val1 - val2
             matrix[x][y] = diff
@@ -43,15 +47,15 @@ def task1():
     #diffImage.show()  # save("3.jpg")
 
     rgbIm = np.concatenate((myImage1, myImage2, diffImage), axis=0)
+    plt.figure()
     plt.imshow(rgbIm)
     plt.axis('off')
     plt.show()
-    # plt.show()
-    # fig, axs = plt.subplots()
-    # axs.stairs(myImage1.histogram(), label='Type 1')
-    # axs.stairs(myImage2.histogram(), label='Type 2')
-    # axs.set_title("Использование тонов")
-    # axs.legend()
-    # plt.show()
+
+    plt.axis('on')
+    plt.plot(arr_im1, color='black')
+    plt.plot(arr_im2, color='yellow')
+    plt.show()
+
 
 task1()
