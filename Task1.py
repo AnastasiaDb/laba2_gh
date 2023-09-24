@@ -52,9 +52,9 @@ def task1():
     plt.axis('off')
     plt.show()
 
-    plt.axis('on')
     plt.plot(arr_im1, color='black')
-    plt.plot(arr_im2, color='yellow')
+  #  plt.show()
+    plt.plot(arr_im2, color='blue')
     plt.show()
 
 
