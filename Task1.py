@@ -46,16 +46,37 @@ def task1():
     # sleep(3)
     #diffImage.show()  # save("3.jpg")
 
-    rgbIm = np.concatenate((myImage1, myImage2, diffImage), axis=0)
-    plt.figure()
-    plt.imshow(rgbIm)
+  #   rgbIm = np.concatenate((myImage1, myImage2, diffImage), axis=0)
+  #   plt.figure()
+  #   plt.imshow(rgbIm)
+  #   plt.axis('off')
+  #   plt.show()
+  #
+  #   plt.plot(arr_im1, color='black')
+  # #  plt.show()
+  #   plt.plot(arr_im2, color='blue')
+  #   plt.show()
+
+    plt.subplot(3, 2, 1)
+    plt.imshow(myImage1)
     plt.axis('off')
+
+    # Второй график - изображение myImage2
+    plt.subplot(3, 2, 2)
+    plt.imshow(myImage2)
+    plt.axis('off')
+
+    # Третий график - изображение diffImage
+    plt.subplot(2, 2, 3)
+    plt.imshow(diffImage)
+    plt.axis('off')
+
+    # Четвертый график - гистограммы
+    plt.subplot(2, 2, 4)
+    plt.plot(arr_im1, color='black', label='Type 1')
+    plt.plot(arr_im2, color='blue', label='Type 2')
+    plt.legend()
+    plt.grid()
+
     plt.show()
-
-    plt.plot(arr_im1, color='black')
-  #  plt.show()
-    plt.plot(arr_im2, color='blue')
-    plt.show()
-
-
 task1()
