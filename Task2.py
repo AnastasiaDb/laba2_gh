@@ -4,6 +4,9 @@ import numpy as np
 import matplotlib.image as mpimg
 
 def task2():
+    arr_r = [0] * 256
+    arr_g = [0] * 256
+    arr_b = [0] * 256
     image = Image.open("color.jpg")
     w, h = image.size
     image.convert("RGB")
@@ -16,35 +19,35 @@ def task2():
             ImageR.putpixel((x,y),(int(r),0,0, 255) )
             ImageG.putpixel((x,y),(0,int(g),0, 255) )
             ImageB.putpixel((x,y),(0,0,int(b), 255) )
-    rgbIm = np.concatenate((ImageR,ImageG,ImageB), axis=0)
-    plt.figure()
+            arr_r[int(r)] += 1;
+            arr_g[int(g)] += 1;
+            arr_b[int(b)] += 1;
 
-# �������� ������ �����������
-    plt.subplot(3, 1, 1)  # 1 ������, 2 �������, ������ ������
+    plt.imshow(image);
+    plt.axis('off')
+    plt.show();
+
+
+    plt.subplot(2, 3, 1)
     plt.imshow(ImageR)
     plt.axis('off')
-# �������� ������ �����������
-    plt.subplot(3, 1, 2)  # 1 ������, 2 �������, ������ ������
+
+    plt.subplot(2, 3, 2)
     plt.imshow(ImageG)
     plt.axis('off')
 
-    plt.subplot(3, 1, 3)  # 1 ������, 2 �������, ������ ������
+    plt.subplot(2, 3, 3)
     plt.imshow(ImageB)
     plt.axis('off')
-    plt.show()
-    #red_channel = ImageR
-    #green_channel = ImageG
-    #blue_channel = ImageB
-    #hist_red, bins_red = np.histogram(red_channel, bins=256, range=(0, 256))
-    #hist_green, bins_green = np.histogram(green_channel, bins=256, range=(0, 256))
-    #hist_blue, bins_blue = np.histogram(blue_channel, bins=256, range=(0, 256))
-# �������� ����� ������ ��� ����������
-    #plt.figure()
-# ��������� ����������� ��� ������� ������
-    #plt.subplot(1, 3, 1)
-    #plt.hist(red_channel.flatten(), bins=256, range=(0, 256), color='red', alpha=0.7)
-    #plt.subplot(1, 3, 2)
-    #plt.hist(green_channel.flatten(), bins=256, range=(0, 256), color='green', alpha=0.7)
-    #plt.subplot(1, 3, 3)
-    #plt.hist(blue_channel.flatten(), bins=256, range=(0, 256), color='blue', alpha=0.7)
+    #plt.show()
+
+    plt.subplot(2, 3, 4)
+    plt.plot(arr_r, color='red')
+    plt.subplot(2, 3, 5)
+    plt.plot(arr_g, color='green')
+    plt.subplot(2, 3, 6)
+    plt.plot(arr_b, color='blue')
+
+    plt.show();
+
 task2()
