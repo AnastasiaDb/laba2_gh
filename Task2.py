@@ -50,4 +50,4 @@ def task2():
 
     plt.show();
 
-task2()
+#task2()

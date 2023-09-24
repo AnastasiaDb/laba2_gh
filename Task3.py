@@ -73,7 +73,8 @@ def task3():
             r, g, b = hsv_to_rgb(h, s, v)
             myImage1.putpixel((x, y), (r, g, b))
 
-    myImage1.show()
-
-
-#task3()
+    plt.figure()
+    plt.imshow(myImage1)
+    plt.axis('off')
+    plt.show()
+# task3()

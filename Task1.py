@@ -79,4 +79,4 @@ def task1():
     plt.grid()
 
     plt.show()
-task1()
+#task1()
