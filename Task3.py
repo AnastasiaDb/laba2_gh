@@ -50,7 +50,7 @@ def hsv_to_rgb(h, s, v):
 
 
 def task3():
-    image = Image.open("color.jpg")
+    image = Image.open("col.jpg")
     width, height = image.size
 
     myImage1 = Image.new("RGB", (width, height))
@@ -65,7 +65,7 @@ def task3():
             hsv_arr[x][y][0] = h
             hsv_arr[x][y][1] = s
             hsv_arr[x][y][2] = v
-            # myImage1.putpixel((x, y), (h, s, v))
+            #myImage1.putpixel((x, y), (h, s, v))
 
     for x in range(width):
         for y in range(height):
@@ -73,8 +73,13 @@ def task3():
             r, g, b = hsv_to_rgb(h, s, v)
             myImage1.putpixel((x, y), (r, g, b))
 
-    plt.figure()
+    # Третий график - изображение diffImage
+    plt.subplot(2, 2, 1)
     plt.imshow(myImage1)
     plt.axis('off')
+    plt.subplot(2, 2, 2)
+    plt.imshow(image)
+    plt.axis('off')
+
     plt.show()
-# task3()
+#task3()

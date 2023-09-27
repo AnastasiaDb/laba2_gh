@@ -37,7 +37,7 @@ def open_slider_window():
     slider_v.pack()
     button.pack()
 
-    pil_image = PILImage.open("color.jpg")
+    pil_image = PILImage.open("col.jpg")
     original_photo = ImageTk.PhotoImage(pil_image)
 
     # отображение исходного изображения
@@ -106,7 +106,7 @@ button1.pack()
 button2.pack()
 button3.pack()
 
-image = Image.open("color.jpg")
+image = Image.open("col.jpg")
 width, height = image.size
 myImage1 = Image.new("RGB", (width, height))
 hsv_arr_original = np.zeros((width, height, 3), dtype=int)

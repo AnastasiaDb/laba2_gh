@@ -7,7 +7,7 @@ def task2():
     arr_r = [0] * 256
     arr_g = [0] * 256
     arr_b = [0] * 256
-    image = Image.open("color.jpg")
+    image = Image.open("col.jpg")
     w, h = image.size
     image.convert("RGB")
     ImageR= Image.new("RGB", (w, h))
