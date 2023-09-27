@@ -1,7 +1,6 @@
 import tkinter as tk
 from Task1 import task1
 from Task2 import task2
-from Task3 import task3
 from Task3 import hsv_to_rgb
 from Task3 import rgb_to_hsv
 from PIL import Image as PILImage, ImageTk
@@ -70,7 +69,12 @@ def update_image():
             s_new = s_cur + s
             v_new = v_cur + v
 
-            h_new = max(0, min(360, h_new))
+            # h_new = max(0, min(360, h_new))
+            if h_new >= 360:
+                h_new -= 360
+            elif h_new < 0:
+                h_new += 360
+
             s_new = max(-50, min(50, s_new))
             v_new = max(-50, min(50, v_new))
 

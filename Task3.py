@@ -48,6 +48,27 @@ def hsv_to_rgb(h, s, v):
     elif i == 5:
         return round(v * 255 / 100), round(vMin * 255 / 100), round(vDec * 255 / 100)
 
+# def hsv_to_rgb(h, s, v):
+#     i = math.floor(h / 60) % 6
+#     vMin = (100 - s) * v / 100
+#     a = (h % 60) * (v - vMin) / 60
+#     vInc = vMin + a
+#     vDec = v - a
+#
+#     if i == 0:
+#         r, g, b = v, vInc, vMin
+#     elif i == 1:
+#         r, g, b = vDec, v, vMin
+#     elif i == 2:
+#         r, g, b = vMin, v, vInc
+#     elif i == 3:
+#         r, g, b = vMin, vDec, v
+#     elif i == 4:
+#         r, g, b = vInc, vMin, v
+#     elif i == 5:
+#         r, g, b = v, vMin, vDec
+#
+#     return round(r * 255 / 100), round(g * 255 / 100), round(b * 255 / 100)
 
 def task3():
     image = Image.open("col.jpg")
